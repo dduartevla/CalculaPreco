@@ -7,12 +7,87 @@
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/textViewPreco"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="15dp"
+        android:text="Preço"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextPreco"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginRight="15dp"
+        android:ems="10"
+        android:inputType="number"
+        android:text="Preço base do produto"
+        android:textColor="#6F6C6C"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.198"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewPreco" />
+
+    <CheckBox
+        android:id="@+id/checkBoxEmbrulhaPresente"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="20dp"
+        android:text="Embrulhado para Presente"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextPreco" />
+
+    <CheckBox
+        android:id="@+id/checkBoxEnvioExpresso"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="20dp"
+        android:text="Envio Expresso"
+        app:layout_constraintStart_toEndOf="@+id/checkBoxEmbrulhaPresente"
+        app:layout_constraintTop_toBottomOf="@+id/editTextPreco" />
+
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="40dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/checkBoxEmbrulhaPresente">
+
+        <RadioButton
+            android:id="@+id/radioButtonDinheiro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Em diheiro" />
+
+        <RadioButton
+            android:id="@+id/radioButton1xCartao"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="1x no cartão" />
+
+        <RadioButton
+            android:id="@+id/radioButton3xCartao"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="3x no cartão" />
+
+        <RadioButton
+            android:id="@+id/radioButton2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="RadioButton" />
+    </RadioGroup>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
