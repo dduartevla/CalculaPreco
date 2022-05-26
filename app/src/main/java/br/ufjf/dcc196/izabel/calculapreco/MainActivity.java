@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import java.text.NumberFormat;
@@ -16,6 +17,8 @@ public class MainActivity extends AppCompatActivity {
     private EditText editTextPreco;
     private TextView textViewPrecoFinal;
     private CheckBox checkBoxParaPresente;
+    private CheckBox checkBoxenvioExpresso;
+    private RadioGroup radioGroupPagamento;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +27,8 @@ public class MainActivity extends AppCompatActivity {
         editTextPreco = findViewById(R.id.editTextPreco);
         textViewPrecoFinal = findViewById(R.id.textViewPrecoFinal);
         checkBoxParaPresente = findViewById(R.id.checkBoxEmbrulhaPresente);
+        checkBoxenvioExpresso = findViewById(R.id.checkBoxEnvioExpresso);
+        radioGroupPagamento = findViewById(R.id.radioGroupPagamento);
     }
 
     public void calcular (View origin){
@@ -32,6 +37,25 @@ public class MainActivity extends AppCompatActivity {
 
         if(checkBoxParaPresente.isChecked()){
             precoFinal += 5.00;
+        }
+
+        if(checkBoxenvioExpresso.isChecked()){
+            precoFinal += 10.00;
+        }
+
+        switch (radioGroupPagamento.getCheckedRadioButtonId()){
+
+            case R.id.radioButton1xCartao:
+                precoFinal += 0.03*preco;
+                break;
+
+            case R.id.radioButton3xCartao:
+                precoFinal += 0.06*preco;
+                break;
+
+            case R.id.radioButton6xCartao:
+                precoFinal += 0.09*preco;
+                break;
         }
 
         Locale locale = new Locale("pt", "BR");

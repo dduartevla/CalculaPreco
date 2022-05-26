@@ -42,7 +42,7 @@
         app:layout_constraintTop_toBottomOf="@+id/editTextPreco" />
 
     <RadioGroup
-        android:id="@+id/radioGroup"
+        android:id="@+id/radioGroupPagamento"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
@@ -84,7 +84,7 @@
         android:onClick="calcular"
         android:text="Calcular"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/radioGroup"
+        app:layout_constraintStart_toEndOf="@+id/radioGroupPagamento"
         app:layout_constraintTop_toBottomOf="@+id/checkBoxEnvioExpresso" />
 
     <TextView
@@ -96,7 +96,7 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/radioGroup"
+        app:layout_constraintStart_toEndOf="@+id/radioGroupPagamento"
         app:layout_constraintTop_toBottomOf="@+id/buttonCalcular" />
 
     <EditText
