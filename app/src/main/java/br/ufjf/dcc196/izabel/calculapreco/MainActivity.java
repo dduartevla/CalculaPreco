@@ -29,6 +29,15 @@ public class MainActivity extends AppCompatActivity {
         checkBoxParaPresente = findViewById(R.id.checkBoxEmbrulhaPresente);
         checkBoxenvioExpresso = findViewById(R.id.checkBoxEnvioExpresso);
         radioGroupPagamento = findViewById(R.id.radioGroupPagamento);
+
+        View.OnClickListener listener = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                calcular(v);
+            }
+        };
+        checkBoxParaPresente.setOnClickListener(listener);
+        checkBoxenvioExpresso.setOnClickListener(listener);
     }
 
     public void calcular (View origin){
