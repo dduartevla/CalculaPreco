@@ -32,7 +32,15 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void calcular (View origin){
-        Double preco = Double.parseDouble(editTextPreco.getText().toString());
+
+        Double preco = 0.0;
+
+        try {
+            preco = Double.parseDouble(editTextPreco.getText().toString());
+        } catch (Exception e){
+            editTextPreco.requestFocus();
+        }
+
         Double precoFinal = preco;
 
         if(checkBoxParaPresente.isChecked()){
