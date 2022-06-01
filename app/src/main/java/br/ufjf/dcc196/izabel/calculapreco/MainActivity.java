@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
     private CheckBox checkBoxParaPresente;
     private CheckBox checkBoxenvioExpresso;
     private RadioGroup radioGroupPagamento;
+    private EditText editTextPeso;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
         checkBoxParaPresente = findViewById(R.id.checkBoxEmbrulhaPresente);
         checkBoxenvioExpresso = findViewById(R.id.checkBoxEnvioExpresso);
         radioGroupPagamento = findViewById(R.id.radioGroupPagamento);
+        editTextPeso = findViewById(R.id.editTextPeso);
 
         View.OnClickListener listener = new View.OnClickListener() {
             @Override
@@ -43,9 +45,11 @@ public class MainActivity extends AppCompatActivity {
     public void calcular (View origin){
 
         Double preco = 0.0;
+        Double peso = 0.0;
 
         try {
             preco = Double.parseDouble(editTextPreco.getText().toString());
+            peso = Double.parseDouble(editTextPeso.getText().toString());
         } catch (Exception e){
             editTextPreco.requestFocus();
         }
@@ -75,6 +79,7 @@ public class MainActivity extends AppCompatActivity {
                 break;
         }
 
+        precoFinal +=
         Locale locale = new Locale("pt", "BR");
 
 
