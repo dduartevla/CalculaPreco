@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
     private CheckBox checkBoxenvioExpresso;
     private RadioGroup radioGroupPagamento;
     private EditText editTextPeso;
+    private TextView textViewvalorFrete;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +32,8 @@ public class MainActivity extends AppCompatActivity {
         checkBoxenvioExpresso = findViewById(R.id.checkBoxEnvioExpresso);
         radioGroupPagamento = findViewById(R.id.radioGroupPagamento);
         editTextPeso = findViewById(R.id.editTextPeso);
+        textViewvalorFrete = findViewById(R.id.textViewFrete);
+
 
         View.OnClickListener listener = new View.OnClickListener() {
             @Override
@@ -46,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
 
         Double preco = 0.0;
         Double peso = 0.0;
+        Double valorFrete = 0.0;
 
         try {
             preco = Double.parseDouble(editTextPreco.getText().toString());
@@ -61,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         if(checkBoxenvioExpresso.isChecked()){
-            precoFinal += 10.00;
+            valorFrete += 10.00;
         }
 
         switch (radioGroupPagamento.getCheckedRadioButtonId()){
@@ -79,10 +83,12 @@ public class MainActivity extends AppCompatActivity {
                 break;
         }
 
-        precoFinal +=
+        valorFrete += 10.00 + 4.00 * peso;
+        precoFinal += valorFrete;
+
         Locale locale = new Locale("pt", "BR");
 
-
+        textViewvalorFrete.setText("Valor do frete: " + NumberFormat.getCurrencyInstance(locale).format(valorFrete));
         textViewPrecoFinal.setText(NumberFormat.getCurrencyInstance(locale).format(precoFinal));
     }
 }
